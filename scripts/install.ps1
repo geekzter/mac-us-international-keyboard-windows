@@ -15,7 +15,7 @@ if (($PSVersionTable.PSEdition -ieq "Core") -and !$IsWindows) {
     Write-Output "Not running on Windows, exiting"
     exit
 }    
-if ($SkipIfInstalled -and ((Get-ChildItem -Path "HKLM:\SYSTEM\ControlSet001\Control\Keyboard Layouts" | Get-ItemProperty | Select-Object -ExpandProperty "Layout File") -icontains "USIAPPLE.dll")) {
+if ($SkipIfInstalled -and ((Get-ChildItem -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Keyboard Layouts" | Get-ItemProperty | Select-Object -ExpandProperty "Layout File") -icontains "USIAPPLE.dll")) {
     Write-Host "Keyboard layout already installed, exiting"
     exit
 }
